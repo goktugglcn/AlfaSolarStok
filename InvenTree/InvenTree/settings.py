@@ -109,7 +109,15 @@ logger = logging.getLogger("inventree")
 SECRET_KEY = config.get_secret_key()
 
 # The filesystem location for served static files
-STATIC_ROOT = config.get_static_dir()
+from django.core.exceptions import ImproperlyConfigured
+
+try:
+    INVENTREE_STATIC_ROOT = config.get('INVENTREE_STATIC_ROOT')
+except ImproperlyConfigured:
+    raise FileNotFoundError('INVENTREE_STATIC_ROOT not specified')
+
+STATIC_ROOT = INVENTREE_STATIC_ROOT
+
 
 # The filesystem location for uploaded meadia files
 MEDIA_ROOT = config.get_media_dir()
