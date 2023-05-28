@@ -15,7 +15,6 @@ def get_unit_registry():
 
     # Cache the unit registry for speedier access
     if _unit_registry is None:
-<<<<<<< HEAD
         reload_unit_registry()
 
     return _unit_registry
@@ -40,14 +39,6 @@ def reload_unit_registry():
 
     # TODO: Allow for custom units to be defined in the database
 
-=======
-        _unit_registry = pint.UnitRegistry()
-
-    # TODO: Allow for custom units to be defined in the database
-
-    return _unit_registry
-
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 def convert_physical_value(value: str, unit: str = None):
     """Validate that the provided value is a valid physical quantity.
@@ -57,11 +48,7 @@ def convert_physical_value(value: str, unit: str = None):
         unit: Optional unit to convert to, and validate against
 
     Raises:
-<<<<<<< HEAD
         ValidationError: If the value is invalid or cannot be converted to the specified unit
-=======
-        ValidationError: If the value is invalid
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
     Returns:
         The converted quantity, in the specified units
@@ -93,17 +80,9 @@ def convert_physical_value(value: str, unit: str = None):
         # At this point we *should* have a valid pint value
         # To double check, look at the maginitude
         float(val.magnitude)
-<<<<<<< HEAD
     except (TypeError, ValueError):
         error = _('Provided value is not a valid number')
     except (pint.errors.UndefinedUnitError, pint.errors.DefinitionSyntaxError):
-=======
-    except ValueError:
-        error = _('Provided value is not a valid number')
-    except pint.errors.UndefinedUnitError:
-        error = _('Provided value has an invalid unit')
-    except pint.errors.DefinitionSyntaxError:
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
         error = _('Provided value has an invalid unit')
     except pint.errors.DimensionalityError:
         error = _('Provided value could not be converted to the specified unit')

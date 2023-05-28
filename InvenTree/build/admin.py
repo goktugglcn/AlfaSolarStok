@@ -9,34 +9,6 @@ from import_export import widgets
 from build.models import Build, BuildItem
 from InvenTree.admin import InvenTreeResource
 import part.models
-<<<<<<< HEAD
-=======
-from django.http import HttpResponse
-from django.contrib.admin.utils import get_fields_from_path
-
-def export_admin_action(modeladmin, request, queryset):
-    """
-    Custom export action for the admin interface.
-    This example exports the selected objects as a CSV file.
-    """
-
-    # Get the fields for the model
-    fields = get_fields_from_path(modeladmin.model, None)
-
-    # Create the CSV content
-    csv_content = ','.join(field.name for field in fields) + '\n'
-    for obj in queryset:
-        csv_content += ','.join(str(getattr(obj, field.name)) for field in fields) + '\n'
-
-    # Create the HTTP response with the CSV content
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="export.csv"'
-    response.write(csv_content)
-
-    return response
-
-export_admin_action.short_description = "Export selected objects"
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 
 class BuildResource(InvenTreeResource):
@@ -109,10 +81,6 @@ class BuildAdmin(ImportExportModelAdmin):
         'take_from',
         'destination',
     ]
-<<<<<<< HEAD
-=======
-    actions = list(ImportExportModelAdmin.actions) + [export_admin_action]
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 
 class BuildItemAdmin(admin.ModelAdmin):

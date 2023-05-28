@@ -1,0 +1,3 @@
+[submodule "Django"]
+    path = InvenTree\django
+    url = https://github.com/django/django.git
