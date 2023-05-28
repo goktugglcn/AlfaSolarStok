@@ -1,0 +1,1 @@
+web gunicorn InvenTree.wsgi:application --log-file -
