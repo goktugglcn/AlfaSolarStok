@@ -12,6 +12,9 @@ site/
 
 # Temp files
 releases.json
+<<<<<<< HEAD
 versions.json
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 .vscode/

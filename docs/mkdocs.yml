@@ -11,20 +11,29 @@ repo_name: inventree/inventree
 # Theme
 theme:
   name: material
+<<<<<<< HEAD
   font:
     text: Roboto
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
   custom_dir: _includes/overrides
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+<<<<<<< HEAD
       primary: blue
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
       accent: light blue
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+<<<<<<< HEAD
       primary: blue
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
       accent: light blue
       toggle:
         icon: material/toggle-switch-off-outline
@@ -34,6 +43,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
+<<<<<<< HEAD
     - header.autohide
     - navigation.expand
     - navigation.footer
@@ -47,6 +57,10 @@ theme:
     - search.highlight
     - toc.autohide
     - toc.follow
+=======
+    - navigation.tabs
+    - toc.autohide
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 edit_uri: "" # Disable "Edit" button
 extra_css:
   - stylesheets/brands.css
@@ -240,10 +254,13 @@ extra:
   #  provider: google
   #  property: UA-143467500-1
 
+<<<<<<< HEAD
   version:
     default: stable
     provider: mike
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/inventree/inventree

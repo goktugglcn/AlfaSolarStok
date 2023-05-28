@@ -55,6 +55,7 @@ Trackable parts can be assigned batch numbers or serial numbers which uniquely i
 
 ### Purchaseable
 
+<<<<<<< HEAD
 If a part is designated as *Purchaseable* it can be purchased from external suppliers. Setting this flag allows parts be linked to supplier parts and procured via purchase orders.
 
 #### Suppliers
@@ -68,6 +69,9 @@ Purchaseable parts can be linked to [Supplier Parts](../order/company.md#supplie
 #### Purchase Orders
 
 A [Purchase Order](../order/purchase_order.md) allows parts to be ordered from an external supplier.
+=======
+If a part is designated as *Purchaseable* it can be purchased from external suppliers. Setting this flag allows parts to be added to [purchase orders](../order/purchase_order.md).
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 ### Salable
 
@@ -77,6 +81,7 @@ If a part is designated as *Salable* it can be sold to external customers. Setti
 
 By default, all parts are *Active*. Marking a part as inactive means it is not available for many actions, but the part remains in the database. If a part becomes obsolete, it is recommended that it is marked as inactive, rather than deleting it from the database.
 
+<<<<<<< HEAD
 ## Units of Measure
 
 Each type of part can define a custom "unit of measure" which is a standardized unit which is used to track quantities for a particular part. By default, the "unit of measure" for each part is blank, which means that each part is tracked in dimensionless quantities of "pieces".
@@ -102,6 +107,8 @@ If an incompatible unit type is specified, an error will be displayed:
 {% include 'img.html' %}
 {% endwith %}
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 ## Part Images
 
 Each part can have an associated image, which is used for display purposes throughout the InvenTree interface. A prominent example is on the part detail page itself:

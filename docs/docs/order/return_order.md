@@ -99,6 +99,7 @@ While [line items](#line-items) must reference a particular stock item, extra li
 ## Return Order Reports
 
 Custom [reports](../report/return_order.md) can be generated against each Return Order.
+<<<<<<< HEAD
 
 ### Calendar view
 
@@ -108,3 +109,5 @@ This view can be accessed externally as an ICS calendar using a URL like the fol
 `http://inventree.example.org/api/order/calendar/return-order/calendar.ics`
 
 by default, completed orders are not exported. These can be included by appending `?include_completed=True` to the URL.
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c

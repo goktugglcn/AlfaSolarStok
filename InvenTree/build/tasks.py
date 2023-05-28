@@ -12,7 +12,10 @@ from allauth.account.models import EmailAddress
 from plugin.events import trigger_event
 import common.notifications
 import build.models
+<<<<<<< HEAD
 import InvenTree.email
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 import InvenTree.helpers
 import InvenTree.tasks
 from InvenTree.status_codes import BuildStatus
@@ -102,7 +105,11 @@ def check_build_stock(build: build.models.Build):
 
         recipients = emails.values_list('email', flat=True)
 
+<<<<<<< HEAD
         InvenTree.email.send_email(subject, '', recipients, html_message=html_message)
+=======
+        InvenTree.tasks.send_email(subject, '', recipients, html_message=html_message)
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 
 def notify_overdue_build_order(bo: build.models.Build):

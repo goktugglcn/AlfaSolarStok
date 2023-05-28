@@ -277,6 +277,7 @@ class TestCurrencyMigration(MigratorTestCase):
         for pb in PB.objects.all():
             # Test that a price has been assigned
             self.assertIsNotNone(pb.price)
+<<<<<<< HEAD
 
 
 class TestSupplierPartQuantity(MigratorTestCase):
@@ -325,3 +326,5 @@ class TestSupplierPartQuantity(MigratorTestCase):
             # And the 'pack_size' attribute has been removed
             with self.assertRaises(AttributeError):
                 sp.pack_size
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c

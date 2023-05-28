@@ -11,7 +11,10 @@ from django.core.exceptions import AppRegistryNotReady
 from django.db import transaction
 from django.db.utils import IntegrityError
 
+<<<<<<< HEAD
 import InvenTree.conversion
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 import InvenTree.tasks
 from InvenTree.config import get_setting
 from InvenTree.ready import canAppAccessDatabase, isInTestMode
@@ -47,9 +50,12 @@ class InvenTreeConfig(AppConfig):
 
         self.collect_notification_methods()
 
+<<<<<<< HEAD
         # Ensure the unit registry is loaded
         InvenTree.conversion.reload_unit_registry()
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
         if canAppAccessDatabase() or settings.TESTING_ENV:
             self.add_user_on_startup()
 

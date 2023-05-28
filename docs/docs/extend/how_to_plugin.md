@@ -1,9 +1,16 @@
 ---
+<<<<<<< HEAD
 title: Developing Plugins
 ---
 
 ## How to Develop a Plugin
 
+=======
+title: How to plugin
+---
+
+## How to write a plugin
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 A short introductory guide for plugin beginners.
 
 ### Should it be a plugin?

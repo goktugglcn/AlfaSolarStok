@@ -4,6 +4,7 @@ title: FAQ
 
 ## Frequently Asked Questions
 
+<<<<<<< HEAD
 Below is a list of frequently asked questions. If you are having issues with InvenTree please consult this list first!
 
 ## Installation Isues
@@ -52,6 +53,9 @@ Most likely you are trying to run the InvenTree server from outside the context 
 Always activate the virtual environment before running server commands!
 
 ## Update Issues
+=======
+### Errors during InvenTree update
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 Sometimes, users may encounter unexpected error messages when updating their InvenTree installation to a newer version.
 
@@ -85,7 +89,46 @@ or
 !!! tip "A Refreshing Solution"
     Performing a hard page refresh will remove old javascript files from your browser's cache
 
+<<<<<<< HEAD
 ## Background Worker Issues
+=======
+### Problems installing on Windows
+
+InvenTree installation is not officially supported natively on Windows. Install using the WSL framework.
+
+### Command 'invoke' not found
+
+If the `invoke` command does not work, it means that the [invoke](https://pypi.org/project/invoke/) python library has not been correctly installed.
+
+Update the installed python packages with PIP:
+
+```
+pip3 install -U -r requirements.txt
+```
+
+### Invoke Version
+
+If the installed version of invoke is too old, users may see error messages during the installation procedure, such as *"'update' did not receive all required positional arguments!"* (or similar).
+
+As per the [invoke guide](./start/intro.md#invoke), the minimum required version of Invoke is `1.4.0`.
+
+To determine the version of invoke you have installed, run either:
+
+```
+invoke --version
+```
+```
+python -m invoke --version
+```
+
+If you are running an older version of invoke, ensure it is updated to the latest version.
+
+### ModuleNotFoundError: No module named 'django'
+
+Most likely you are trying to run the InvenTree server from outside the context of the virtual environment where the required python libraries are installed.
+
+Always activate the virtual environment before running server commands!
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 ### Background Worker "Not Running"
 
@@ -100,8 +143,11 @@ invoke worker
 !!! info "Supervisor"
     A better option is to manage the background worker process using a process manager such as supervisor. Refer to the [production server guide](./start/production.md).
 
+<<<<<<< HEAD
 ## Docker Issues
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 ### File Sync Issues - Docker
 
 When installing under [Docker](./start/docker.md), sometimes issues may arise keeping [persistent data](./start/docker.md#persistent-data) in sync. Refer to the [common issues](./start/docker_prod.md#common-issues) section in the docker setup guide for further details.
@@ -119,6 +165,7 @@ It means that the user running the InvenTree server does not have permission to 
 Ensure that the user running the InvenTree server has permission to create the required directories. For example, if running the server as the `inventree` user, ensure that the `inventree` user has permission to create the required directories.
 
 If you are using Docker to run the InvenTree server, ensure that the user that runs the docker deamon has permission to create the required directories in the volume.
+<<<<<<< HEAD
 
 ### Failed to mount local volume
 
@@ -134,3 +181,5 @@ This means that either:
 - The docker user does not have write permission to the specified directory
 
 In either case, ensure that the directory is available *on your local machine* and the user account has the required permissions.
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c

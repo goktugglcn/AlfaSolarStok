@@ -2,7 +2,10 @@
 
 import os
 from datetime import datetime
+<<<<<<< HEAD
 from decimal import Decimal
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -20,7 +23,10 @@ from taggit.managers import TaggableManager
 
 import common.models
 import common.settings
+<<<<<<< HEAD
 import InvenTree.conversion
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 import InvenTree.fields
 import InvenTree.helpers
 import InvenTree.ready
@@ -438,8 +444,12 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
         multiple: Multiple that the part is provided in
         lead_time: Supplier lead time
         packaging: packaging that the part is supplied in, e.g. "Reel"
+<<<<<<< HEAD
         pack_quantity: Quantity of item supplied in a single pack (e.g. 30ml in a single tube)
         pack_quantity_native: Pack quantity, converted to "native" units of the referenced part
+=======
+        pack_size: Quantity of item supplied in a single pack (e.g. 30ml in a single tube)
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
         updated: Date that the SupplierPart was last updated
     """
 
@@ -478,6 +488,7 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
         """
         super().clean()
 
+<<<<<<< HEAD
         self.pack_quantity = self.pack_quantity.strip()
 
         # An empty 'pack_quantity' value is equivalent to '1'
@@ -512,6 +523,8 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
                     'pack_quantity': e.messages
                 })
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
         # Ensure that the linked manufacturer_part points to the same part!
         if self.manufacturer_part and self.part:
 
@@ -547,6 +560,7 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
 
         super().save(*args, **kwargs)
 
+<<<<<<< HEAD
     part = models.ForeignKey(
         'part.Part', on_delete=models.CASCADE,
         related_name='supplier_parts',
@@ -564,6 +578,23 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
         verbose_name=_('Supplier'),
         help_text=_('Select supplier'),
     )
+=======
+    part = models.ForeignKey('part.Part', on_delete=models.CASCADE,
+                             related_name='supplier_parts',
+                             verbose_name=_('Base Part'),
+                             limit_choices_to={
+                                 'purchaseable': True,
+                             },
+                             help_text=_('Select part'),
+                             )
+
+    supplier = models.ForeignKey(Company, on_delete=models.CASCADE,
+                                 related_name='supplied_parts',
+                                 limit_choices_to={'is_supplier': True},
+                                 verbose_name=_('Supplier'),
+                                 help_text=_('Select supplier'),
+                                 )
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
     SKU = models.CharField(
         max_length=100,
@@ -571,6 +602,7 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
         help_text=_('Supplier stock keeping unit')
     )
 
+<<<<<<< HEAD
     manufacturer_part = models.ForeignKey(
         ManufacturerPart, on_delete=models.CASCADE,
         blank=True, null=True,
@@ -578,6 +610,14 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
         verbose_name=_('Manufacturer Part'),
         help_text=_('Select manufacturer part'),
     )
+=======
+    manufacturer_part = models.ForeignKey(ManufacturerPart, on_delete=models.CASCADE,
+                                          blank=True, null=True,
+                                          related_name='supplier_parts',
+                                          verbose_name=_('Manufacturer Part'),
+                                          help_text=_('Select manufacturer part'),
+                                          )
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
     link = InvenTreeURLField(
         blank=True, null=True,
@@ -601,6 +641,7 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
 
     packaging = models.CharField(max_length=50, blank=True, null=True, verbose_name=_('Packaging'), help_text=_('Part packaging'))
 
+<<<<<<< HEAD
     pack_quantity = models.CharField(
         max_length=25,
         verbose_name=_('Pack Quantity'),
@@ -621,6 +662,16 @@ class SupplierPart(MetadataMixin, InvenTreeBarcodeMixin, common.models.MetaMixin
 
         return q
 
+=======
+    pack_size = RoundingDecimalField(
+        verbose_name=_('Pack Quantity'),
+        help_text=_('Unit quantity supplied in a single pack'),
+        default=1,
+        max_digits=15, decimal_places=5,
+        validators=[MinValueValidator(0.001)],
+    )
+
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
     multiple = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)], verbose_name=_('multiple'), help_text=_('Order multiple'))
 
     # TODO - Reimplement lead-time as a charfield with special validation (pattern matching).

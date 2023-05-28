@@ -17,10 +17,13 @@ PLM can also mean product lifecycle management – those systems manage all stag
 
 A similar system is [Partkeepr](https://partkeepr.org/) (seems mostly inactive - there is a 3rd party importer).
 
+<<<<<<< HEAD
 ### Material Resource Planning *(MRP)*
 
 Material Requirements Planning software, is designed to assist businesses in effectively managing their manufacturing processes. It helps with the planning and control of inventory, production schedules, and procurement activities. MRP software utilizes various algorithms and data inputs, such as sales forecasts, production capacity, and bill of materials, to generate material requirements plans, schedule production orders, and optimize inventory levels.
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 ### Asset Management *(AM)*
 Manages many unique items, which need tracking per part and are assignable to users / groups / locations. These systems often include features like item states, refurbishing / maintenance / reservation, or request-flows.
 Often these systems are used for IT-Hardware (then they are called *ITAM*).
@@ -34,7 +37,10 @@ Popular, fully fledged ERPs are [ERPNext](https://erpnext.com/) or [odoo](https:
 ### Customer Relationship Manager *(CRM)*
 
 Customer relationship management (CRM) is a technology for managing all your company's relationships and interactions with customers and potential customers.
+<<<<<<< HEAD
 
 ### Manufacturing Execution System *(MES)*
 
 A Manufacturing Execution System (MES), oversees, monitors, records, and manages the entire manufacturing process from raw materials to finalized products.
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c

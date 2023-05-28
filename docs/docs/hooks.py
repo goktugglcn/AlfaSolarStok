@@ -4,6 +4,7 @@ import json
 import os
 import re
 from datetime import datetime
+<<<<<<< HEAD
 from distutils.version import StrictVersion
 
 import requests
@@ -86,6 +87,9 @@ def fetch_rtd_versions():
 
     with open(output_filename, 'w') as fo:
         json.dump(versions, fo, indent=2)
+=======
+from urllib import request
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
 
 def get_release_data():
@@ -104,6 +108,7 @@ def get_release_data():
 
         print("Loading release information from 'releases.json'")
         with open(json_file) as f:
+<<<<<<< HEAD
             return json.loads(f.read())
 
     # Download release information via the GitHub API
@@ -133,6 +138,39 @@ def get_release_data():
     with open(json_file, 'w') as f:
         print("Saving release information to 'releases.json'")
         f.write(json.dumps(releases))
+=======
+            releases = json.loads(f.read())
+    else:
+        # Download release information via the GitHub API
+        print("Fetching InvenTree release information from api.github.com:")
+        releases = []
+
+        # Keep making API requests until we run out of results
+        page = 1
+
+        while 1:
+            url = f"https://api.github.com/repos/inventree/inventree/releases?page={page}&per_page=150"
+
+            print(f" - {url}")
+
+            response = request.urlopen(url, timeout=30)
+            assert response.status == 200
+
+            data = json.loads(response.read().decode())
+
+            if len(data) == 0:
+                break
+
+            for item in data:
+                releases.append(item)
+
+            page += 1
+
+        # Cache these results to file
+        with open(json_file, 'w') as f:
+            print("Saving release information to 'releases.json'")
+            f.write(json.dumps(releases))
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
     return releases
 
@@ -156,6 +194,7 @@ def on_config(config, *args, **kwargs):
 
     rtd = os.environ.get('READTHEDOCS', False)
 
+<<<<<<< HEAD
     # Check for 'versions.json' file
     # If it does not exist, we need to fetch it from the RTD API
     if os.path.exists(os.path.join(os.path.dirname(__file__), 'versions.json')):
@@ -163,11 +202,17 @@ def on_config(config, *args, **kwargs):
     else:
         fetch_rtd_versions()
 
+=======
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
     if rtd:
         rtd_version = os.environ['READTHEDOCS_VERSION']
         rtd_language = os.environ['READTHEDOCS_LANGUAGE']
 
+<<<<<<< HEAD
         site_url = f"https://docs.inventree.org/{rtd_language}/{rtd_version}"
+=======
+        site_url = f"https://inventree.readthedocs.io/{rtd_language}/{rtd_version}"
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
         assets_dir = f"/{rtd_language}/{rtd_version}/assets"
 
         print("Building within READTHEDOCS environment!")
@@ -217,7 +262,11 @@ def on_config(config, *args, **kwargs):
         tag = item['tag_name']
 
         # Check that the tag is formatted correctly
+<<<<<<< HEAD
         re.match(r'^\d+\.\d+\.\d+$', tag)
+=======
+        re.match('^\d+\.\d+\.\d+$', tag)
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
         if not re.match:
             print(f"Found badly formatted release: {tag}")

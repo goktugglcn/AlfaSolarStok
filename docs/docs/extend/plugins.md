@@ -89,6 +89,7 @@ Common use cases are covered by pre-supplied modules in the form of *mixins* (si
 
 Supported mixin classes are:
 
+<<<<<<< HEAD
 | Mixin | Description |
 | --- | --- |
 | [ActionMixin](./plugins/action.md) | Run custom actions |
@@ -105,3 +106,19 @@ Supported mixin classes are:
 | [SettingsMixin](./plugins/settings.md) | Integrate user configurable settings |
 | [UrlsMixin](./plugins/urls.md) | Respond to custom URL endpoints |
 | [ValidationMixin](./plugins/validation.md) | Provide custom validation of database models |
+=======
+- [ActionMixin](./plugins/action.md)
+- [APICallMixin](./plugins/api.md)
+- [AppMixin](./plugins/app.md)
+- [BarcodeMixin](./plugins/barcode.md)
+- [EventMixin](./plugins/event.md)
+- [LabelPrintingMixin](./plugins/label.md)
+- [LocateMixin](./plugins/locate.md)
+- [NavigationMixin](./plugins/navigation.md)
+- [PanelMixin](./plugins/panel.md)
+- [ReportMixin](./plugins/report.md)
+- [ScheduleMixin](./plugins/schedule.md)
+- [SettingsMixin](./plugins/settings.md)
+- [UrlsMixin](./plugins/urls.md)
+- [ValidationMixin](./plugins/validation.md)
+>>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
