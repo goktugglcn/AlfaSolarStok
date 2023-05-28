@@ -109,17 +109,10 @@ logger = logging.getLogger("inventree")
 SECRET_KEY = config.get_secret_key()
 
 # The filesystem location for served static files
-from django.core.exceptions import ImproperlyConfigured
-
-from django.conf import settings
-
-INVENTREE_STATIC_ROOT = getattr(settings, 'INVENTREE_STATIC_ROOT', None)
-
-
+STATIC_ROOT = config.get_static_dir()
 
 # The filesystem location for uploaded meadia files
-INVENTREE_MEDIA_ROOT = getattr(settings, 'INVENTREE_MEDIA_ROOT', None)
-
+MEDIA_ROOT = config.get_media_dir()
 
 # List of allowed hosts (default = allow all)
 ALLOWED_HOSTS = get_setting(
