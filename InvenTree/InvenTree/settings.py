@@ -70,7 +70,7 @@ CONFIG = config.load_config_data(set_cache=True)
 
 # Default action is to run the system in Debug mode
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = get_boolean_setting('INVENTREE_DEBUG', 'debug', True)
+DEBUG = get_boolean_setting('INVENTREE_DEBUG', 'debug', False)
 
 # Configure logging settings
 log_level = get_setting('INVENTREE_LOG_LEVEL', 'log_level', 'WARNING')
@@ -118,7 +118,7 @@ MEDIA_ROOT = config.get_media_dir()
 ALLOWED_HOSTS = get_setting(
     "INVENTREE_ALLOWED_HOSTS",
     config_key='allowed_hosts',
-    default_value=['*'],
+    default_value=['https://alfasolarenerji.herokuapp.com'],
     typecast=list,
 )
 
