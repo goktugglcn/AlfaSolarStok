@@ -558,22 +558,12 @@ class PurchaseOrderLineItemReceiveSerializer(serializers.Serializer):
         serial_numbers = data.get('serial_numbers', '').strip()
 
         base_part = line_item.part.part
-<<<<<<< HEAD
         base_quantity = line_item.part.base_quantity(quantity)
-=======
-        pack_size = line_item.part.pack_size
-
-        pack_quantity = pack_size * quantity
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
 
         # Does the quantity need to be "integer" (for trackable parts?)
         if base_part.trackable:
 
-<<<<<<< HEAD
             if Decimal(base_quantity) != int(base_quantity):
-=======
-            if Decimal(pack_quantity) != int(pack_quantity):
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
                 raise ValidationError({
                     'quantity': _('An integer quantity must be provided for trackable parts'),
                 })
@@ -584,11 +574,7 @@ class PurchaseOrderLineItemReceiveSerializer(serializers.Serializer):
                 # Pass the serial numbers through to the parent serializer once validated
                 data['serials'] = extract_serial_numbers(
                     serial_numbers,
-<<<<<<< HEAD
                     base_quantity,
-=======
-                    pack_quantity,
->>>>>>> 331c0c7ac41e8dd6ad8241f441a49bf3aa607e5c
                     base_part.get_latest_serial_number()
                 )
             except DjangoValidationError as e:
