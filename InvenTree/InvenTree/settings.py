@@ -111,12 +111,10 @@ SECRET_KEY = config.get_secret_key()
 # The filesystem location for served static files
 from django.core.exceptions import ImproperlyConfigured
 
-try:
-    INVENTREE_STATIC_ROOT = config.get('INVENTREE_STATIC_ROOT')
-except ImproperlyConfigured:
-    raise FileNotFoundError('INVENTREE_STATIC_ROOT not specified')
+from django.conf import settings
 
-STATIC_ROOT = INVENTREE_STATIC_ROOT
+INVENTREE_STATIC_ROOT = getattr(settings, 'INVENTREE_STATIC_ROOT', None)
+
 
 
 # The filesystem location for uploaded meadia files
