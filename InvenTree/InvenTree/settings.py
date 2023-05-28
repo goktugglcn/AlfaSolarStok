@@ -118,7 +118,7 @@ MEDIA_ROOT = config.get_media_dir()
 ALLOWED_HOSTS = get_setting(
     "INVENTREE_ALLOWED_HOSTS",
     config_key='allowed_hosts',
-    default_value=['https://alfasolarenerji.herokuapp.com'],
+    default_value=['*'],
     typecast=list,
 )
 
