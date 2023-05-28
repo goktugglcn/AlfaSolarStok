@@ -118,7 +118,8 @@ INVENTREE_STATIC_ROOT = getattr(settings, 'INVENTREE_STATIC_ROOT', None)
 
 
 # The filesystem location for uploaded meadia files
-MEDIA_ROOT = config.get_media_dir()
+INVENTREE_MEDIA_ROOT = getattr(settings, 'INVENTREE_MEDIA_ROOT', None)
+
 
 # List of allowed hosts (default = allow all)
 ALLOWED_HOSTS = get_setting(
