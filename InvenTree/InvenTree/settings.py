@@ -149,9 +149,9 @@ STATICFILES_DIRS = []
 # Translated Template settings
 STATICFILES_I18_PREFIX = 'i18n'
 STATICFILES_I18_SRC = BASE_DIR.joinpath('templates', 'js', 'translated')
-STATICFILES_I18_TRG = BASE_DIR.joinpath('InvenTree', 'static_i18n')
-STATICFILES_DIRS.append(STATICFILES_I18_TRG)
-STATICFILES_I18_TRG = STATICFILES_I18_TRG.joinpath(STATICFILES_I18_PREFIX)
+#STATICFILES_I18_TRG = BASE_DIR.joinpath('InvenTree', 'static_i18n')
+STATICFILES_DIRS.append(STATICFILES_I18_SRC)
+#STATICFILES_I18_TRG = STATICFILES_I18_TRG.joinpath(STATICFILES_I18_PREFIX)
 
 STATFILES_I18_PROCESSORS = [
     'InvenTree.context.status_codes',
@@ -197,7 +197,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'plugin.apps.PluginAppConfig',
     'InvenTree.apps.InvenTreeConfig',       # InvenTree app runs last
-
+    
     # Core django modules
     'django.contrib.auth',
     'django.contrib.contenttypes',
