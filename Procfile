@@ -1,1 +1,1 @@
-web: gunicorn InvenTree.wsgi
+web: python manage.py runserver
