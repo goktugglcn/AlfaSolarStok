@@ -14,10 +14,6 @@ import os
 import socket
 import sys
 from pathlib import Path
-
-import django_heroku
-import dj_database_url
-
 import django.conf.locale
 import django.core.exceptions
 from django.core.validators import URLValidator
@@ -939,6 +935,6 @@ if DEBUG:
 logger.info(f"MEDIA_ROOT: '{MEDIA_ROOT}'")
 logger.info(f"STATIC_ROOT: '{STATIC_ROOT}'")
 
-django_heroku.settings(locals())
+
 
 
