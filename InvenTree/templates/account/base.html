@@ -41,7 +41,7 @@
 <link rel="stylesheet" href="{% get_color_theme_css user.get_username %}">
 
 <title>
-    {% inventree_title %} | {% block head_title %}{% endblock head_title %}
+    {% trans 'Alfa Solar Enerji' %} | {% block head_title %}{% endblock head_title %}
 </title>
 
 {% block extra_head %}
@@ -65,7 +65,7 @@
                 <div class='clearfix content-heading login-header d-flex flex-wrap'>
                     <img class="pull-left" src="{% inventree_logo %}" alt='{% trans "InvenTree logo" %}' width="60" height="60"/>
                     {% include "spacer.html" %}
-                    <span class='float-right'><h3>{% inventree_title %}</h3></span>
+                    <span class='float-right'><h3>{% trans 'Alfa Solar Enerji' %}</h3></span>
                 </div>
             </div>
                 <div class='container-fluid'>

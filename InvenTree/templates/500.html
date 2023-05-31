@@ -3,7 +3,7 @@
 {% load inventree_extras %}
 
 {% block page_title %}
-{% inventree_title %} | {% trans "Internal Server Error" %}
+{% trans 'Alfa Solar Enerji' %} | {% trans "Internal Server Error" %}
 {% endblock page_title %}
 
 {% block content %}
@@ -12,7 +12,7 @@
     <h3>{% trans "Internal Server Error" %}</h3>
 
     <div class='alert alert-danger alert-block'>
-        {% blocktrans %}The {{ inventree_title }} server raised an internal error{% endblocktrans %}<br>
+        {% blocktrans %}The {{ trans 'Alfa Solar Enerji' }} server raised an internal error{% endblocktrans %}<br>
         {% trans "Refer to the error log in the admin interface for further details" %}
     </div>
 </div>

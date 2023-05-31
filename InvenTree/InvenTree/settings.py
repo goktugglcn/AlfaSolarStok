@@ -98,26 +98,27 @@ LOGGING = {
     },
 }
 
-# Get a logger instance for this setup file
+## Get a logger instance for this setup file
 logger = logging.getLogger("inventree")
 
 # Load SECRET_KEY
 SECRET_KEY = config.get_secret_key()
 
 # The filesystem location for served static files
-STATIC_ROOT = config.get_static_dir()
+STATIC_ROOT = Path(BASE_DIR).joinpath('static')
+
 
 # The filesystem location for uploaded meadia files
-MEDIA_ROOT = config.get_media_dir()
+MEDIA_ROOT = Path(BASE_DIR).joinpath('media')
+
 
 # List of allowed hosts (default = allow all)
 ALLOWED_HOSTS = get_setting(
     "INVENTREE_ALLOWED_HOSTS",
     config_key='allowed_hosts',
-    default_value=['*'],
+    default_value=['http://16.170.244.199/'],
     typecast=list,
 )
-
 # Cross Origin Resource Sharing (CORS) options
 
 # Only allow CORS access to API
@@ -195,7 +196,8 @@ INSTALLED_APPS = [
     'stock.apps.StockConfig',
     'users.apps.UsersConfig',
     'plugin.apps.PluginAppConfig',
-    'InvenTree.apps.InvenTreeConfig',       # InvenTree app runs last
+    'InvenTree.apps.InvenTreeConfig', 
+     'storages',           # InvenTree app runs last
     
     # Core django modules
     'django.contrib.auth',
@@ -934,6 +936,7 @@ if DEBUG:
 
 logger.info(f"MEDIA_ROOT: '{MEDIA_ROOT}'")
 logger.info(f"STATIC_ROOT: '{STATIC_ROOT}'")
+
 
 
 
